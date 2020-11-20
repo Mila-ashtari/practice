@@ -1,0 +1,29 @@
+// I have to buy at the lowest price and sell at the highest price 
+// use the two pointer method to find the lowest price and highest price
+// [7,1,5,3,6,4]
+//    b
+//      s 
+//  sell pointer starts at index 1
+//  is buy pointer less than sell pointer
+// if "yes"  buy -->store the price buy variable
+// if "no"   both but and sell pointer move to the next index
+
+
+
+function maxProfit(arr){
+    let i=0;
+    let profit=0;
+    
+    for (let j=1; j<arr.length; j++){
+      if(arr[i]>arr[j]){
+        i++
+      }
+      else{
+        profit=profit + (arr[j] - arr[i])
+        i++
+      }
+    }
+    return profit
+  }
+  
+  console.log(maxProfit([1,2,3,4,5]))
