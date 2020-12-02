@@ -1,0 +1,14 @@
+body {
+    font-family: sans-serif;
+  }
+  .stepContainer {
+    display: flex;
+    flex-direction: column;
+  }
+  .stepContainer input{
+    align-self: flex-start;
+  }
+  .hidden {
+    display: none;
+  }
+  

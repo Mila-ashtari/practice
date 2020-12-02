@@ -6,6 +6,7 @@ const stepsState = [
       current: true
     },
     {
+
       label: "Create an ad group",
       completed: false,
       current: false
@@ -17,30 +18,46 @@ const stepsState = [
     }
   ];
   
-  const root = document.getElementById("root");
+
   const createStep = (step, index) => {
     const showClass = step.current ? "" : "hidden";
     return `
-            <div data-step="${index}" class="stepContainer">
+            <div class="stepContainer">
               <label>${step.label}</label>
               <input type="text" class="${showClass}"></input>
               <div class="buttonContainer ${showClass}">
-                <button class="back">Back</button>
-                <button class="next">Next</button>
+                <button class="backButton" data-step="${index}" onclick="handleBackClick(event)">Back</button>
+                <button class="nextButton" data-step="${index}" onclick="handleNextClick(event)">Next</button>
               </div>
             </div>
-            `;
+            `
   };
-  
-  root.innerHTML = stepsState.map((step) => createStep(step)).join("");
-  
-  const nextButtons = document.getElementsByClassName("next");
-  
-  for (const button of nextButtons) {
-    button.addEventListener("click", (e) => {
-      e.preventDefault();
-      const step = e.currentTarget;
-      console.log(step);
-    });
+  const root = document.getElementById("root");
+  root.innerHTML = stepsState.map((step, index) => createStep(step, index)).join("");
+
+  const handleNextClick=(e)=>{
+    e.preventDefault()
+    const step = parseInt(e.target.dataset.step);
+    const nextStep=step+1
+    console.log(step, nextStep)
+    stepsState[step].completed=true
+    stepsState[step].current=false
+    stepsState[nextStep].current=true
   }
+  
+//   const nextButtons = document.getElementsByClassName("nextButton");
+//   console.log(nextButtons)
+//   for (const button of nextButtons) {
+//       console.log(button)
+//       button.addEventListener("click", (e) => {
+//       e.preventDefault()
+//       const step = parseInt(e.currentTarget.dataset.step);
+//       const nextStep=step+1
+//       console.log(step, nextStep)
+//       stepsState[step].completed=true
+//       stepsState[step].current=false
+//       stepsState[nextStep].current=true
+//       root.innerHTML = stepsState.map((step, index) => createStep(step, index)).join("");
+//     });
+//   }
   
