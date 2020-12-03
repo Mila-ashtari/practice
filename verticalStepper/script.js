@@ -43,21 +43,7 @@ const stepsState = [
     stepsState[step].completed=true
     stepsState[step].current=false
     stepsState[nextStep].current=true
+    root.innerHTML = stepsState.map((step, index) => createStep(step, index)).join("");
   }
   
-//   const nextButtons = document.getElementsByClassName("nextButton");
-//   console.log(nextButtons)
-//   for (const button of nextButtons) {
-//       console.log(button)
-//       button.addEventListener("click", (e) => {
-//       e.preventDefault()
-//       const step = parseInt(e.currentTarget.dataset.step);
-//       const nextStep=step+1
-//       console.log(step, nextStep)
-//       stepsState[step].completed=true
-//       stepsState[step].current=false
-//       stepsState[nextStep].current=true
-//       root.innerHTML = stepsState.map((step, index) => createStep(step, index)).join("");
-//     });
-//   }
   
