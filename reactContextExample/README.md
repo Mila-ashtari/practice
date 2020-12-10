@@ -2,6 +2,7 @@
 
 •	Context system at its core is about communicating data. Context Object can be assumed as a pipe where we send down the data from parent component to nested child components.
 
+
 ![](./src/assets/Picture8.png)
 
 •	There are two ways of feeding data to context object and two ways of using it in the nested child component
@@ -12,11 +13,11 @@
 
 ![](./src/assets/Picture11.png)
 
-•	The parent component connects to the context object through the provider component
+•	The parent component connects to the context object through the provider component. the data in provided by the provider component via value prop
 
 ![](./src/assets/Picture10.png)
 
-•	Consumer component is another way to access the data inside the context object in nested children components. Consumer component only takes one child and that is callback function (inside curly brackets) where it receives context object as the parameter.
+•	Consumer component is another way to access the data form the context object in nested children components. Consumer component only takes one child and that is callback function (inside curly brackets) where it receives value as the parameter. see button.js
 
 •	Consumer component is used when we want to access multiple context objects in a single component as apposed to this.context method where only on context can be accessed
 
